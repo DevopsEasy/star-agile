@@ -2,7 +2,7 @@ pipeline {
     agent any 
 
     environment {    
-        DOCKERHUB_CREDENTIALS = credentials('dockerloginid')
+        DOCKERHUB_CREDENTIALS = credentials('docker_cred')
     } 
     
     stages {
@@ -55,7 +55,6 @@ pipeline {
             }
         }
         stage('k8s') {
-            agent { label "k8smaster" }
             steps {
              sh 'kubectl version'
             }

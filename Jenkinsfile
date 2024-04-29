@@ -45,19 +45,6 @@ pipeline {
                 sh "docker push devopseasy/insuranceapp:v1"
             }
         }
-        stage('Approve - Deployment to Kubernetes Cluster') {
-            steps {
-                //----------------send an approval prompt-----------
-                script {
-                   env.APPROVED_DEPLOY_KUBE = input message: 'User input required. Choose "yes" to approve or "Abort" to reject', ok: 'Yes', submitterParameter: 'APPROVER_KUBE'
-                }
-                //-----------------end approval prompt------------
-            }
-        }
-        stage('k8s') {
-            steps {
-             sh 'kubectl version'
-            }
-        }
+     
     }
 }

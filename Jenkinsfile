@@ -9,7 +9,7 @@ pipeline {
         stage('SCM Checkout') {
             steps {
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/DevopsEasy/star-agile.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/DevopsEasy/star-agile.git'
             }
         }
         stage('Maven Build') {
